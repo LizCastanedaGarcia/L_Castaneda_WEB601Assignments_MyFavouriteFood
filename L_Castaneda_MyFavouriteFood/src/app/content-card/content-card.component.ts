@@ -11,6 +11,7 @@ import { ContentList } from '../helper-files/content-list';
 })
 export class ContentCardComponent implements OnInit {
   contentList: ContentList;
+
 constructor(){
 this.contentList=new ContentList
 this.contentList.addItem({
@@ -33,7 +34,11 @@ this.contentList.addItem({
 }
 ngOnInit(){
   
-  
+
 }
+
+
+
+
 }
 
