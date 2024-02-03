@@ -1,0 +1,17 @@
+<p>content-list works!</p>
+
+<div [ngClass]="{'content-card': true, 'first-card': isFirstCard}" (click)="displayContentDetails()">
+  <h3>{{ content.title }}</h3>
+  <img *ngIf="content.imgURL" src="{{ content.imgURL }}" alt="{{ content.style }}" (click)="displayContentDetails()">
+  <p>{{ content.description }}</p>
+  <p>Ingridients: {{ content.ingredients }}</p>
+  <p *ngIf="content.type">Style: {{ content.style }}</p>
+  <p *ngIf="content.tags && content.tags.length > 0">Tags: {{ content.tags.join(', ') }}</p>
+</div>
+
+<div *ngFor="let content of contentArray, let first=first">
+    
+    <app-content-card [content]="content" [isFirstCard]="first"></app-content-card>>
+  </div>
+  
+  

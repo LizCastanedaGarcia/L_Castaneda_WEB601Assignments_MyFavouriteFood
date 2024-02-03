@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { ContentList } from '../helper-files/content-list';
+//import { ContentList } from '../helper-files/content-list';
 
 @Component({
   selector: 'app-content-card',
@@ -9,7 +9,8 @@ import { ContentList } from '../helper-files/content-list';
   templateUrl: './content-card.component.html',
   styleUrl: './content-card.component.scss'
 })
-export class ContentCardComponent implements OnInit {
+
+/* export class ContentCardComponent implements OnInit {
   contentList: ContentList;
 
 constructor(){
@@ -35,10 +36,6 @@ this.contentList.addItem({
 ngOnInit(){
   
 
-}
+} */
 
-
-
-
-}
 
