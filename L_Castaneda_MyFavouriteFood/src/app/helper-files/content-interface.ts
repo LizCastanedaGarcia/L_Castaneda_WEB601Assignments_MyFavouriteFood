@@ -1,9 +1,13 @@
-export interface Content {
-    id:number,
-    style:string,
-    description:string,
-    ingredients:string,
-    imgURL:string,
-    taste:string,
-    tags?:string[]
-}
+export  interface Content {
+
+    id: number;
+    title: string;
+    description: string;
+    taste: string;
+    ingridients: string;
+    Costo: number;
+    imageUrl?: string;
+    type?: string;
+    tags?: string[];
+  }
+

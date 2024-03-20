@@ -1,3 +1,42 @@
-<span class="body" [innerHtml]="contentList.getContentHTML(0)"></span>
-<span class="body">{{contentList.getContentHTML(1)}}</span>
-<span class="body">{{contentList.getContentHTML(1)}}</span>
+<div
+  [style.border]="content.id === 1 ? '2px solid black' : '1px solid red'"
+  [style.padding]="'20px'"
+  [style.margin]="'10px'"
+>
+  <div class="card">
+    <header>{{ content.title }}</header>
+    <img
+      class="img"
+      *ngIf="content.imageUrl; else defaultImage"
+      [src]="content.imageUrl"
+      (click)="showDetails()"
+    />
+
+    <img [src]="content.imageUrl" (click)="showDetails()" />
+    <ng-template #defaultImage>
+      <img class="default-img" src="*" (click)="showDetails()" />
+    </ng-template>
+
+    <p>Description: {{ content.description }}</p>
+
+    <p>Taste: {{ content.taste }}</p>
+
+  
+
+    <p appHoverAffect typeStyle="textDecoration">Type: {{ content.type }}</p>
+
+    
+    <div>
+      Tags:
+      <div
+        class="list"
+        *ngFor="let tag of content.tags"
+        appHoverAffect
+        tagStyle="fontWeight"
+      >
+        {{ tag }}
+      </div>
+    </div>
+  </div>
+</div>
+  

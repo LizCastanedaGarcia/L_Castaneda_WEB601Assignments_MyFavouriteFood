@@ -1,5 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Content } from '../helper-files/content-interface';
+import { NgModule } from '@angular/core';
 import { ContentListComponent } from './content-list.component';
 
 describe('ContentListComponent', () => {
@@ -21,3 +22,4 @@ describe('ContentListComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+export { ContentListComponent };

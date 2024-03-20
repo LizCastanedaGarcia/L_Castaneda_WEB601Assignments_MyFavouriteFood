@@ -21,3 +21,6 @@ describe('ContentCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+export { ContentCardComponent };
+
