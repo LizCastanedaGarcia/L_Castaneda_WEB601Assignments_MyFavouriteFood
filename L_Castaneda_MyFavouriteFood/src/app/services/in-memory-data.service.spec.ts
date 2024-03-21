@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-//import { InMemoryDbService } from "angular-in-memory-webapi";
+import { InMemoryDbService } from "angular-in-memory-web-api";
 import { InMemoryDataService } from './in-memory-data.service';
 
 describe('InMemoryDataService', () => {
