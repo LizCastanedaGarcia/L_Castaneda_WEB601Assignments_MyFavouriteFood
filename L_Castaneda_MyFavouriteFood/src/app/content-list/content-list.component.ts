@@ -8,6 +8,7 @@ import { HoverAffectDirective } from '../hover-affect.directive'
 import { FormsModule } from '@angular/forms';
 import { contentDb } from '../helper-files/contentDb';
 import { FoodService } from '../services/food.service';
+import { ModifyContentComponentComponent } from '../modify-content-component/modify-content-component.component';
 
 
 @Component({
