@@ -12,12 +12,12 @@ import { filter } from 'rxjs';
 import { FoodService } from './services/food.service';
 //import { CreateContentComponent } from './create-content/create-content.component'; // Assignment#5
 import { MessagesService } from './services/messages.service';
-
+import { FormsModule } from '@angular/forms';
 @Component({
     selector: 'app-root',
     standalone: true,
     //Assignment#5
-    imports: [CommonModule, ContentListComponent, RouterOutlet, ContentTypeFilterPipePipe, ContentCardComponent],
+    imports: [CommonModule, ContentListComponent, RouterOutlet, ContentTypeFilterPipePipe, ContentCardComponent, FormsModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     
@@ -26,7 +26,7 @@ export class AppComponent {
   inputId: number;
   contentItem: any;
 
-  constructor(private foodService: FoodService, private messagesService: MessagesService) {}
+  constructor(private foodService: FoodService, public messagesService: MessagesService) {}
 
   getContentItem(): void {
     // Check if inputId is a valid number

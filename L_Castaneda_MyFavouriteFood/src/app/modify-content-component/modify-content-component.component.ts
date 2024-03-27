@@ -8,7 +8,7 @@ import { MessagesService } from '../services/messages.service';
 @Component({
   selector: 'app-modify-content-component',
   standalone: true,
-  imports : [FormsModule,MessagesService,ModifyContentComponentComponent],
+  imports : [FormsModule ,ModifyContentComponentComponent],
   templateUrl: './modify-content-component.component.html',
   styleUrl: './modify-content-component.component.scss'
 })
@@ -26,26 +26,30 @@ export class ModifyContentComponentComponent {
   };
   @Output() contentAdded=new EventEmitter<Content>();
   newContentArray: Content[]=[];
-  constructor(private contentService:ContentService,private message:MessagesService);
+  constructor(private contentService:FoodService,private message:MessagesService)
+  {}
+
 
   ngOnInit(){
-    this.contentService.getContent().subscribe(content=>this.newContentArray=content);
+    this.contentService.getContentArray().subscribe(content=>this.newContentArray=content);
 
   }
-  addContentToList(newContentItem:Content):void {
-    console.log('Adding new Content:',newContentItem);
-    if(typeof newContentItem.tags=='string'){
-      newContentItem.tags=(newContentItem.tags as string).split(',');
+
+  addContent():void {
+    console.log('Adding new Content:', this.newContent);
+    if(typeof this.newContent.tags=='string'){
+      this.newContent.tags=(this.newContent.tags as string).split(',');
 
     } else {
-      newContentItem.tags=[];
+      this.newContent.tags=[];
     }
-    this.contentService.addContent(newContentItem).subscribe(newContentFromServer=>{
+    this.contentService.addContent(this.newContent).subscribe(newContentFromServer=>{
       this.newContentArray.push(newContentFromServer);
       this.contentAdded.emit(newContentFromServer);
       console.log('Content Array after adding:',this.newContentArray);
 
-      this.message.add(`Content"${newContentItem.title}" added successfully!`);
+      // this.message.add(`Content"${this.newContent.title}" added successfully!`);
+
       this.newContent={id:1,title:'',description:'',taste: '',ingridients: '',Costo: 0,
       type:'',imageUrl:'',tags: []}
     });

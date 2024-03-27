@@ -14,7 +14,7 @@ import { ModifyContentComponentComponent } from '../modify-content-component/mod
 @Component({
   selector: 'app-content-list',
   standalone: true,
-  imports: [CommonModule, ContentCardComponent, RouterOutlet, ContentTypeFilterPipePipe, HoverAffectDirective, FormsModule],
+  imports: [CommonModule, ModifyContentComponentComponent, ContentCardComponent, RouterOutlet, ContentTypeFilterPipePipe, HoverAffectDirective, FormsModule],
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.scss']
 })
@@ -32,6 +32,11 @@ export class ContentListComponent implements OnInit {
       .subscribe(contents => this.contents = contents);
   }
   
+  onContentAdded(newContent: any): void {
+    
+    this.getContent();
+    
+  } 
   
  /*  contents = contentDb;
 
@@ -39,7 +44,7 @@ export class ContentListComponent implements OnInit {
 
     ngOnInit(): void {
     } */
-}
+
 
 
 /* contentArray: Content[]  = [
@@ -62,21 +67,14 @@ searchContent: any;
 searchTitle: any;
 
   checkTitle(){
-    this.filterContent = this.contentArray.filter(item => item.title.toLowerCase() === this.title.toLowerCase());
+    this.filterContent = this.contents.filter(item => item.title.toLowerCase() === this.title.toLowerCase());
 
     this.isFound = this.filterContent.length > 0;
     
     this.message = this.isFound ? `Content with title '${this.title}' found.` : `Content with title '${this.title}' not found.`;
   }
 
-  constructor(){
 
-  }
+  
 
-  /* //Assignment#5
-  onContentAdded(newContent: any): void {
-    
-    console.log("New content added:", newContent);
-    
-  } */
 }

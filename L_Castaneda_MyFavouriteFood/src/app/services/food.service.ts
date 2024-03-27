@@ -10,7 +10,11 @@ import { MessagesService } from './messages.service';
 })
 export class FoodService {
   MessagesService: any;
-
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type':
+    'application/json' })
+    };
+    
   //constructor() { }
   constructor(private http: HttpClient) { }
 
