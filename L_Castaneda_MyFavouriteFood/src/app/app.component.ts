@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     selector: 'app-root',
     standalone: true,
     //Assignment#5
-    imports: [CommonModule, ContentListComponent, RouterOutlet, ContentTypeFilterPipePipe, ContentCardComponent, FormsModule],
+    imports: [CommonModule,ContentListComponent, RouterOutlet, ContentTypeFilterPipePipe, ContentCardComponent, FormsModule],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
     
@@ -31,7 +31,7 @@ export class AppComponent {
   getContentItem(): void {
     // Check if inputId is a valid number
     if (isNaN(this.inputId)) {
-      this.messagesService.addMessage('Error: Please enter a valid number.');
+      this.messagesService.add('Error: Please enter a valid number.');
       return;
     }
 
@@ -40,13 +40,13 @@ export class AppComponent {
       .subscribe(
         item => {
           this.contentItem = item;
-          this.messagesService.addMessage(`Content Item at id: ${this.inputId}`);
+          this.messagesService.add(`Content Item at id: ${this.inputId}`);
         },
         error => {
           if (error === 'Not Found') {
-            this.messagesService.addMessage('Error: Content item not found.');
+            this.messagesService.add('Error: Content item not found.');
           } else {
-            this.messagesService.addMessage('An error occurred while fetching the content item.');
+            this.messagesService.add('An error occurred while fetching the content item.');
           }
         }
       );
